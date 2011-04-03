@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/jcommon-1.0.16.jar"/>
+	<classpathentry kind="lib" path="libs/jfreechart-1.0.13.jar"/>
+	<classpathentry kind="lib" path="libs/Sequencer.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.15.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
