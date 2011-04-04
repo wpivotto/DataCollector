@@ -21,7 +21,7 @@ Exemplo
 Result
 -------------
 
-![Result Trend](http://i1238.photobucket.com/albums/ff487/wpivotto/Imagem2.png)
+![Result Trend](http://i1238.photobucket.com/albums/ff487/wpivotto/result.png)
 
 
 Author
