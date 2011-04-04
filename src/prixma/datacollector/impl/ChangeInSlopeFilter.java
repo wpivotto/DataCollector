@@ -1,4 +1,4 @@
-package prixma.datacollector.algorithm;
+package prixma.datacollector.impl;
 
 import prixma.datacollector.compression.Record;
 import prixma.datacollector.filters.CompressionFilter;

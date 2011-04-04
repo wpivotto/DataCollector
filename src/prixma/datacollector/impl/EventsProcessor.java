@@ -1,4 +1,4 @@
-package prixma.datacollector.algorithm;
+package prixma.datacollector.impl;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

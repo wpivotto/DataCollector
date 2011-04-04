@@ -4,33 +4,24 @@ import generators.SineWaveGenerator;
 
 import java.util.List;
 
-import prixma.datacollector.algorithm.DefaultEngine;
-import prixma.datacollector.algorithm.SwingingDoorAlgorithm;
-import prixma.datacollector.compression.CompressionEngine;
 import prixma.datacollector.compression.Record;
+import prixma.datacollector.impl.DataCollector;
 
 public class CompressionTest {
-	
-	private CompressionEngine getEngine(){
-		
-		CompressionEngine engine = new DefaultEngine(new SwingingDoorAlgorithm());
-		
-		engine.enableLog();
-		engine.enableStats();
-		
-		return engine;
-		
-	}
 
 	public void execute(){
 		
+		DataCollector collector = new DataCollector();
+		
+		collector.enableLog();
+		
 		List<Record> rawData = Simulator.generateData(1000l, new SineWaveGenerator(100));
+			
+		List<Record> compressedData = collector.submit(rawData);
 		
-		List<Record> compressedData = getEngine().batchProcess(rawData);
+		collector.generateReport();
 		
-		CompressionResultChart chart = new CompressionResultChart(rawData, compressedData);
-		
-		chart.render();
+		new CompressionResultChart(rawData, compressedData).render();
 		
 	}
 	

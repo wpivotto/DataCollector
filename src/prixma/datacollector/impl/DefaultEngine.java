@@ -1,4 +1,4 @@
-package prixma.datacollector.algorithm;
+package prixma.datacollector.impl;
 
 
 import java.util.ArrayList;
@@ -9,8 +9,6 @@ import java.util.List;
 import prixma.datacollector.compression.CompressionAlgorithm;
 import prixma.datacollector.compression.CompressionCallback;
 import prixma.datacollector.compression.CompressionEngine;
-import prixma.datacollector.compression.CompressionLogger;
-import prixma.datacollector.compression.CompressionReport;
 import prixma.datacollector.compression.EventNotifier;
 import prixma.datacollector.compression.Record;
 import prixma.datacollector.compression.RecordOrder;
@@ -20,8 +18,6 @@ public class DefaultEngine implements CompressionEngine {
 	private EventNotifier notifier;
 	
 	private EventsProcessor processor;
-	
-	private CompressionReport report;
 	
 	private final CompressionAlgorithm algorithm;
 
@@ -34,16 +30,6 @@ public class DefaultEngine implements CompressionEngine {
 		this.processor = new EventsProcessor();
 		registerCallback(this.processor);
 		this.algorithm = algorithm;
-	}
-	
-	
-	public void enableStats(){
-		this.report = new CompressionReport();
-		registerCallback(this.report);
-	}
-	
-	public void enableLog(){
-		registerCallback(new CompressionLogger());
 	}
 	
 	public Record process(Record candidate) {
@@ -73,8 +59,6 @@ public class DefaultEngine implements CompressionEngine {
 		
 		Collections.sort(results, RecordOrder.ByTimestamp);
 		
-		generateReport();
-		
 		return results;
 		
 	}
@@ -82,10 +66,6 @@ public class DefaultEngine implements CompressionEngine {
 	public void registerCallback(CompressionCallback callback) {
 		notifier.register(callback);
 	}
-	
-	public void generateReport(){
-		if(report != null)
-			report.print();
-	}
+
 
 }

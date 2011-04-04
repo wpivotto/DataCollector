@@ -3,8 +3,6 @@ package prixma.datacollector.example;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
 import java.util.Collection;
 
 import org.jfree.chart.ChartFactory;
@@ -61,6 +59,7 @@ public class CompressionResultChart extends ApplicationFrame {
 	        true,
 	        false
 	    );
+	    
 
 	    chart.setAntiAlias(true);
 	    chart.setTextAntiAlias(true);
@@ -71,13 +70,10 @@ public class CompressionResultChart extends ApplicationFrame {
         renderer.setSeriesShapesVisible(0, shapes);  
         renderer.setSeriesLinesVisible(1, true);
         renderer.setSeriesShapesVisible(1, shapes); 
-        renderer.setSeriesShape(0, new Rectangle2D.Double(-3, -3, 6, 6));
-        renderer.setSeriesShape(1, new Ellipse2D.Double(-3, -3.0, 6, 6));
-        
         plot.setRenderer(renderer);
         
 	    final ChartPanel chartPanel = new ChartPanel(chart, false);
-	    chartPanel.setMouseZoomable(true, false);
+	    chartPanel.setMouseZoomable(true, true);
 	 
 	   
 	    chartPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -105,7 +101,7 @@ public class CompressionResultChart extends ApplicationFrame {
 		
 		ChartPanel chart1 = renderChart("Raw Data", rawSerie);
 		ChartPanel chart2 = renderChart("Compressed Data", compressedSerie);
-		ChartPanel chart3 = renderChart("Result (Overlapping Data)", compressedSerie, rawSerie);
+		ChartPanel chart3 = renderChart("Result", compressedSerie, rawSerie);
 		
 		getContentPane().add(chart1, BorderLayout.NORTH);
 		getContentPane().add(chart2, BorderLayout.CENTER);

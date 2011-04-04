@@ -6,7 +6,11 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 public class EventNotifier {
 	
-	private Set<CompressionCallback> listeners = new CopyOnWriteArraySet<CompressionCallback>();
+	private Set<CompressionCallback> listeners;
+	
+	public EventNotifier() {
+		this.listeners = new CopyOnWriteArraySet<CompressionCallback>();
+	}
 
 	public void register(CompressionCallback listener) {
 		listeners.add(listener);

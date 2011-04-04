@@ -1,4 +1,4 @@
-package prixma.datacollector.algorithm;
+package prixma.datacollector.impl;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,19 +21,7 @@ public class AsyncEngine implements CompressionEngine {
 		this.delegate = new DefaultEngine(algorithm);
 		this.executor = AsyncExecutor.New();  
 	}
-	  
-	
-	public void enableStats(){
-		this.delegate.enableStats();
-	}
-	
-	public void enableLog(){
-		this.delegate.enableLog();
-	}
-	
-	public Record process(Record candidate) {
-		return delegate.process(candidate);	
-	}
+	 
 	
 	public List<Record> batchProcess(Collection<Record> records) {
 		
@@ -41,10 +29,7 @@ public class AsyncEngine implements CompressionEngine {
 		
 	}
 	
-	public void generateReport(){
-		this.delegate.generateReport();
-	}
-
+	
 	public void registerCallback(CompressionCallback callback) {
 		this.delegate.registerCallback(callback);
 	}

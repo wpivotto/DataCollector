@@ -1,6 +1,6 @@
 package prixma.datacollector.compression;
 
-import prixma.datacollector.algorithm.EventsProcessor;
+import prixma.datacollector.impl.EventsProcessor;
 
 
 
