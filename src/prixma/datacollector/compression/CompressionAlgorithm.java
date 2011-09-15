@@ -1,11 +1,11 @@
 package prixma.datacollector.compression;
 
-import prixma.datacollector.impl.EventsProcessor;
+import prixma.datacollector.impl.EventQueue;
 
 
 
 public interface CompressionAlgorithm {
 	
-	Record submit(Record lastReceived, EventsProcessor processor);
+	Record submit(Record lastReceived, EventQueue queue);
 	
 }

@@ -2,6 +2,7 @@ package prixma.datacollector.example;
 
 import generators.SineWaveGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import prixma.datacollector.compression.Record;
@@ -15,10 +16,16 @@ public class CompressionTest {
 		
 		collector.enableLog();
 		
-		List<Record> rawData = Simulator.generateData(1000l, new SineWaveGenerator(100));
+		List<Record> rawData = Simulator.generateData(100l, new SineWaveGenerator(100));
 			
-		List<Record> compressedData = collector.submit(rawData);
+		List<Record> compressedData = new ArrayList<Record>();
 		
+		for(Record candidate : rawData){
+			Record result = collector.submit(candidate);
+			if(result != null)
+				compressedData.add(result);
+		}
+	
 		collector.generateReport();
 		
 		new CompressionResultChart(rawData, compressedData).render();

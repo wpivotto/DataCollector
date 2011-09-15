@@ -21,7 +21,7 @@ public class EventQueue implements Iterable<Record> {
 	}
 	
 	public boolean isFirstEvent(){
-		return queue.size() == 1;
+		return queue.size() == 0;
 	}
 	
 	private void clear(){
@@ -35,6 +35,10 @@ public class EventQueue implements Iterable<Record> {
 	@Override
 	public Iterator<Record> iterator() {
 		return queue.iterator();
+	}
+
+	public int size() {
+		return queue.size();
 	}
 	
 }

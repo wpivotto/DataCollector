@@ -9,7 +9,7 @@
         </appender>
         
         <category name="prixma.datacollector">
-	        <priority value="INFO" />
+	        <priority value="DEBUG" />
 	        <appender-ref ref="stdout" />
 	    </category>
 	    

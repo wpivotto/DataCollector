@@ -19,6 +19,7 @@ public class EventsProcessor implements CompressionCallback {
 	}
 	
 	public EventQueue getEventsFrom(Record record){
+		received(record);
 		return events.get(record);
 	}
 
@@ -27,4 +28,7 @@ public class EventsProcessor implements CompressionCallback {
 			events.put(record, new EventQueue());
 	}
 	
+	public void reset(){
+		events.clear();
+	}
 }

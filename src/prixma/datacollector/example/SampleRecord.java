@@ -95,8 +95,6 @@ public class SampleRecord implements Record {
 	}
 	
 
-
-
 	public boolean isOutside(Deadband deadband){
 		return deadband.isOutside(getValue());
 	}

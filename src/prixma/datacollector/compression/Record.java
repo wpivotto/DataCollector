@@ -4,8 +4,6 @@ package prixma.datacollector.compression;
 
 public interface Record {
 
-	Long getId();
-	
 	Long getTimestamp();
 	
 	Long getCompressionMaximumTime(); 

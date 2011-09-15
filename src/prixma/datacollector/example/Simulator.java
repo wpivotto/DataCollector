@@ -22,7 +22,7 @@ public class Simulator {
 			
 			SampleRecord record = new SampleRecord("Record " + i);
 			record.setId(1l);
-			record.setCompressionDeviation(2.25d);
+			record.setCompressionDeviation(1.5d);
 			record.setTimestamp(i);
 			record.setValue(generator.next());
 			

@@ -12,22 +12,19 @@ public class SwingingDoorAlgorithm implements CompressionAlgorithm {
 		this.filter = new ChangeInSlopeFilter();
 	}
 
-	public Record submit(Record lastReceived, EventsProcessor processor){		
+	public Record submit(Record lastReceived, EventQueue queue){		
 		
-		EventQueue events = processor.getEventsFrom(lastReceived);
-		
-		if(events.isFirstEvent())
+		if(queue.isFirstEvent())
 			return lastReceived;
 		
 		Record result = null;
 		
-		for (Record candidate : events) {
+		for (Record candidate : queue) {
 		
-			if(filter.isSatisfiedBy(events.getLastStored(), candidate, lastReceived))
+			if(filter.isSatisfiedBy(queue.getLastStored(), candidate, lastReceived))
 				result = candidate;
 
 		}
-
 		
 		return result;
 		

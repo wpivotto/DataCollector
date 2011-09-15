@@ -24,17 +24,20 @@ public class AsyncEngine implements CompressionEngine {
 	 
 	
 	public List<Record> batchProcess(Collection<Record> records) {
-		
 		return executor.submit(this.delegate, records);
-		
 	}
-	
+
+	public Record process(Record candidate) {
+		return delegate.process(candidate);
+	}
 	
 	public void registerCallback(CompressionCallback callback) {
 		this.delegate.registerCallback(callback);
 	}
 
-
+	public void reset() {
+		this.delegate.reset();
+	}
 	
 
 }

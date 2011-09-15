@@ -36,10 +36,13 @@ public class DefaultEngine implements CompressionEngine {
 		
 		notifier.received(candidate);
 		
-		Record result = algorithm.submit(candidate, processor);
-			
-		if(result != null)
+		EventQueue queue = processor.getEventsFrom(candidate);
+		
+		Record result = algorithm.submit(candidate, queue);
+		
+		if(result != null){
 			notifier.approved(result);
+		}
 		
 		notifier.rejected(candidate);
 			
@@ -65,6 +68,10 @@ public class DefaultEngine implements CompressionEngine {
 	
 	public void registerCallback(CompressionCallback callback) {
 		notifier.register(callback);
+	}
+	
+	public void reset(){
+		processor.reset();
 	}
 
 
