@@ -39,6 +39,6 @@ Exemplo
 
 <http://historian-prixma.appspot.com>
 
-![Chart2](http://i1238.photobucket.com/albums/ff487/wpivotto/chart.png)
+![Chart2](http://i1238.photobucket.com/albums/ff487/wpivotto/chart-1.png)
 
 
